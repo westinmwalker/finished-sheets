@@ -150,72 +150,36 @@ define :chopsticks_right_c do
 end
 
 define :chopsticks_right_d do
-  use_synth_defaults pan: 0.25
-  play_chord [:a, :c5]
-  sleep 0.33
-  use_synth_defaults amp: 0.75
-  play_chord [:b, :d5]
-  sleep 0.66
-  play_chord [:a, :c5]
-  sleep 0.33
-  play_chord [:g, :b]
-  sleep 0.66
-  play_chord [:f, :a]
-  sleep 0.33
-  play_chord [:e, :g]
-  sleep 0.66
-  2.times do
-    play_chord [:c5, :e5]
-    sleep 0.33
-  end
-  sleep 0.33
-  play_chord [:e, :g]
-  sleep 0.33
-  play_chord [:d, :f]
-  sleep 0.66
-  2.times do
-    play_chord [:b, :d5]
-    sleep 0.33
-  end
-  sleep 0.33
-  play_chord [:d, :f]
-  sleep 0.33
-  play_chord [:c, :e]
-  sleep 0.66
-  2.times do
-    play_chord [:e, :c5]
-    sleep 0.33
-  end
-  sleep 0.33
-  use_synth_defaults amp: 0.875
-  play_chord [:c5, :e5]
-  sleep 0.33
-  play_chord [:b, :d5]
-  sleep 0.66
-  play_chord [:a, :c5]
-  sleep 0.33
-  play_chord [:g, :b]
-  sleep 0.66
-  play_chord [:f, :a]
-  sleep 0.33
-  play_chord [:e, :g]
-  sleep 0.66
+  use_synth_defaults pan: 0.25, amp: 0.75
   2.times do
     play_chord [:a, :c5]
     sleep 0.33
-  end
-  sleep 0.33
-  play_chord [:e, :g]
-  sleep 0.33
-  play_chord [:d, :f]
-  sleep 0.66
-  2.times do
     play_chord [:b, :d5]
+    sleep 0.66
+    play_chord [:a, :c5]
     sleep 0.33
+    play_chord [:g, :b]
+    sleep 0.66
+    play_chord [:f, :a]
+    sleep 0.33
+    play_chord [:e, :g]
+    sleep 0.33
+    play_pattern_timed scale(:e, :chromatic), 0.055
+    sleep 0.605
+    play_chord [:e, :g]
+    sleep 0.33
+    play_chord [:d, :f]
+    sleep 0.33
+    play_pattern_timed scale(:d, :chromatic), 0.055
+    sleep 0.605
+    play_chord [:d, :f]
+    sleep 0.33
+    play_chord [:c, :e]
+    sleep 0.33
+    play_pattern_timed scale(:c, :chromatic), 0.055
+    sleep 0.605
+    use_synth_defaults amp: 0.875
   end
-  sleep 0.33
-  play_pattern_timed [:b, :c5, :g, :e, :c], [0.33]
-  sleep 0.66
 end
 
 define :chopsticks_right_e do
