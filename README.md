@@ -83,7 +83,24 @@ A note can be assigned other variables and traits once the notation (MIDI or tra
 ```
 play 60, amp: 1.5, attack: 0.25, sustain: 0.5, release: 0.25
 ```
-The amp function adjusts a note's amplitude, which is how loud or quiet it is; unless otherwise specified, notes have a default amp value of 1.
-The attack function affects how much a note "slides in" when called; notes have a default attack value of 0, which allows for crisp and immediate feedback.
-The sustain function affects how long a note is held before the release phase; notes have a default sustain value of 0, which cuts out most, if not all reverb and feedback.
-The release function affects how long a note lingers after you "lift away" from the key; notes have a default release value of 0, allowing for stacatto if done consecutively.
+The amp function adjusts a note's amplitude, which is how loud or quiet it is; unless otherwise specified, notes have a default amp value of 1. The attack function affects how much a note "slides in" when called; notes have a default attack value of 0, which allows for crisp and immediate feedback. The sustain function affects how long a note is held before the release phase; notes have a default sustain value of 0, which cuts out most, if not all reverb and feedback. The release function affects how long a note lingers after you "lift away" from the key; notes have a default release value of 0, allowing for stacatto if done consecutively.
+
+When put next to a note, chord, or pattern, each of these values only affect that line of code. If you wish for certain presets to be affixed to all notes, that would require the use_synth_defaults function:
+
+```
+use_synth_defaults amp: 0.75
+```
+The above would make it so that, until it is redefined or an exception occurs, every note following that line of code would play at 75% of normal volume.
+
+As in typical Ruby, modules can be defined and called in order to run everything within them:
+
+```
+define example_a do
+  play_pattern_timed scale(:c, :major), 0.33
+  sleep 0.33
+  play_pattern_timed scale(:c5, :major).reverse, 0.33
+end
+
+example_a
+```
+The define function labels example_a as our module, which is followed by a do statement. Nothing within the statement itself will play on its own, but Sonic Pi will run it so that it can properly store the defined module. When the module itself is called outside of statement, it runs everything defined within it. Keep in mind that Sonic Pi will store how the module was most recently defined, meaning that if you make changes and run the sound, but don't run (and thus redefine) the module, it will play back the previous definition.
