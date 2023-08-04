@@ -177,7 +177,7 @@ define :chopsticks_right_d do
     play_chord [:c, :e]
     sleep 0.33
     play_pattern_timed scale(:c, :chromatic), 0.055
-    sleep 0.605
+    sleep 0.945
     use_synth_defaults amp: 0.875
   end
 end
