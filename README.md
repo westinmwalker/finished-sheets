@@ -21,3 +21,9 @@ play 60
 play :c
 ```
 Both of these will play C4 (middle C). When using the latter method, if the letter is not followed by a number, Sonic Pi will automatically play it in the middle position.
+
+The play_chord function is used to play chords, which are stored within an array:
+
+```
+play_chord [:b, :d]
+```
